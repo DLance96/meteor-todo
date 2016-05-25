@@ -36,6 +36,8 @@ Template.body.events({
       text,
       createdAt: new Date(), //current time
       checked: false,
+      owner: Meteor.userId(),
+      username: Meteor.user().username,
     });
 
     // Clear form
