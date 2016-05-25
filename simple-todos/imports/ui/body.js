@@ -1,6 +1,7 @@
 import { Template } from 'meteor/templating';
 import { Tasks } from '../api/tasks.js';
 import './body.html';
+import './tasks.js';
 
 Template.body.helpers({
   tasks() {
@@ -21,6 +22,7 @@ Template.body.events({
     Tasks.insert({
       text,
       createdAt: new Date(), //current time
+      checked: false,
     });
 
     // Clear form
