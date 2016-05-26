@@ -31,14 +31,8 @@ Template.body.events({
     const target = event.target;
     const text = target.text.value;
 
-    // insert task into the db
-    Tasks.insert({
-      text,
-      createdAt: new Date(), //current time
-      checked: false,
-      owner: Meteor.userId(),
-      username: Meteor.user().username,
-    });
+    // Insert a task into the collection
+    Meteor.call('tasks.insert', text);
 
     // Clear form
     target.text.value = '';
